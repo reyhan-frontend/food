@@ -1,0 +1,228 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    transition: .2s linear;
+}
+body{
+    overflow: hidden;
+}
+header{
+    display: flex;
+    position: fixed;
+    top: 0; left: 0;
+    padding: 10px 20px;
+    margin: 10px 40px;
+    z-index: 100;
+    background-color: rgb(255,255,255,.1);
+    border-radius: 5px;
+}
+
+
+header ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+header ul li{
+    margin: 0 20px;
+}
+
+header ul li a{
+    font-size: 16px;
+    color: #f0f0f0;
+}
+header ul li a:hover{
+    color: #ffc700;
+}
+
+.header #menu{
+        /* display: none; */
+        cursor: pointer;
+        font-size: 2.5rem;
+        color: #ffc700;
+    }
+.header #close{
+        display: none;
+        position: absolute;
+        top: 4rem;
+        right: 2rem;
+        cursor: pointer;
+        font-size: 3rem;
+        color: #ffc700;
+
+      }
+
+.container{
+    display: flex;
+}
+.content{
+    min-height: 100vh;
+    width: 40vw;
+    background-color: #222;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    padding: 40px;
+}
+
+.content::before{
+    content: '';
+    position: absolute;
+    bottom: -90px; left: -30px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: rgb(255,255,255,.1);
+    z-index: -1;
+}
+
+.content h1{
+    color: #f0f0f0;
+    font-size: 71px;
+    padding-top: 40px;
+    text-shadow: 0 3px 5px #000;
+}
+
+.content h1 .span1{
+    font-size: 120px;
+}
+.content h1 .span2{
+    font-size: 150px;
+    color: #ffc700;
+
+}
+.content .btn{
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    display: block;
+    font-weight: bold;
+    color: #ffc700;
+    text-shadow: 0 3px 5px #000;
+}
+.content .btn:hover{
+    color: #f0f0f0;
+}
+.content .icons{
+    display: flex;
+    flex-flow: column;
+    position: absolute;
+    bottom: 20px; right: 20px;
+}
+
+.content .icons a{
+    font-size: 25px;
+    color: #f0f0f0;
+    margin: 13px 0px;
+    text-shadow: 0 3px 5px #000;
+}
+.content .icons a:hover{
+    color: #ffc700;
+}
+
+.image{
+    min-height: 93vh;
+    width: 60vw;
+    background:url(food-img1.jpg) no-repeat;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.cours{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: rgb(255,255,255,.3);
+    transform: translate(-50%,-50%);
+    transition: transform .2s;
+    pointer-events: none;
+    position: absolute;
+    z-index: 10;
+}
+
+.image:hover ~ .cours{
+    background: none;
+    transform: scale(6);
+    border: 1px solid #f0f0f0;
+    backdrop-filter: grayscale(); 
+}
+
+    
+@media (max-width:850px){
+       
+   .image{
+            display:none;
+           
+        }
+    .content{
+        width: 100vw;
+    }
+
+}
+
+@media (max-width:550px){
+    .content h1{
+            font-size: 40px;
+    }
+    .content h1 .span1 {
+        font-size: 80px;
+    }
+    .content h1 .span2 {
+        font-size: 107px;
+    }
+
+    .header #menu{
+        display: inline-block;
+    }
+    .header  .navbar{
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        padding: 10px 55px;
+        margin: 0;
+        z-index: 100;
+        backdrop-filter: blur(80px);
+        background-color: rgb(255,255,255,.1);
+        border-radius: 5px;
+        transition: .5s;
+        list-style-type: none;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        width: 15rem;
+        height: 100vh;
+        justify-content: center;
+        align-items: flex-start;
+
+    }
+   
+    .header .navbar.active{
+        left:0 ;
+    }
+    .header .navbar #close{
+        display: block;
+    }
+    .header ul li  {
+    margin: 2rem 0;
+        
+    }
+    .header ul li a {
+        font-size: 27px;
+    }
+}
+
+@media (max-width:380px){
+    .content h1 .span1 {
+        font-size: 4rem;
+    }
+    .content h1 .span2 {
+        font-size: 5.5rem;
+    }
+    .header #menu {
+    font-size: 1.75rem;
+    }
+}

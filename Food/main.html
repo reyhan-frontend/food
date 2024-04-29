@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Food landing page</title>
+</head>
+<body>
+    
+ <header class="header">
+    <a id="menu" class="fas fa-bars"></a>
+    <ul class="navbar">
+        <div id="close" class="fas fa-times"></div>
+
+        <li><a href="#">about</a></li>
+        <li><a href="#">contact</a></li>
+        <li><a href="#">dishes</a></li>
+        <li><a href="#">login</a></li>
+    </ul>
+
+ </header>
+
+ <section class="container">
+    <div class="content">
+        <h1> <span class="span1">better</span><br> <span class="span2">food,</span><br> better life</h1>
+        <a href="#" class="btn">read mor <i class="fas fa-arrow-right"></i></a>
+        <div class="icons">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+        </div>
+    </div>
+
+    <div class="image"></div>
+    <!-- <div class="cours"></div> -->
+ </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  <script>
+        let navbar = document.querySelector('.header .navbar')
+
+    document.querySelector('#menu').onclick = () =>{
+        navbar.classList.add('active');
+    }
+    document.querySelector('#close').onclick = () =>{
+        navbar.classList.remove('active');
+    }
+
+    $(document).ready(function(){
+
+        $('.container').mousemove(function(e){
+        var x = e.pageX + 'px';
+        var y = e.pageY + 'px';
+
+        $('.cours').css({'top':y ,'left':x});
+
+        });
+
+        var images = new Array('food-img1.jpg','food-img2.jpg' ,'food-img3.jpg' , 'food-img4.jpg','food-img5.jpg','food-img6.jpg','food-img7.jpg')
+    
+    setInterval(function(){
+        var random = images[Math.floor(Math.random() * images.length)]
+        $('.image').css('background' , 'url(' + random + ')');
+    },2500);
+    
+   
+    
+    });
+  </script>
+</body>
+</html>
